@@ -38,7 +38,6 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -52,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'CarCheckerLz'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F85F18C2E954E418BB1E1B7C1D57A71 }}
           package: .
